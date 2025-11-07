@@ -1,0 +1,12 @@
+// Project-local debug tasks
+//
+// For more documentation on how to configure debug tasks,
+// see: https://zed.dev/docs/debugger
+[
+  {
+    "adapter": "Debugpy",
+    "label": "Python Debugger",
+    "request": "launch",
+    "program": "${ZED_WORKTREE_ROUTE}/.venv/bin/python3"
+  }
+]

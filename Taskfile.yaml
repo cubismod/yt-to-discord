@@ -1,0 +1,21 @@
+version: '3'
+
+dotenv: ['.env']
+
+tasks:
+  pyright:
+    cmds:
+     - uv run basedpyright
+  check:
+    cmds:
+      - uv run ruff check
+      - task: pyright
+  fix:
+    cmds:
+      - uv run ruff check --fix main.py
+  format:
+    cmds:
+      - uv run ruff format main.py
+  run:
+    cmds:
+      - uv run yt
