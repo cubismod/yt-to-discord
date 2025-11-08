@@ -1,0 +1,7 @@
+.ruff_cache
+.venv
+.zed
+__pycache__
+*.egg*
+state.json
+config*.yaml

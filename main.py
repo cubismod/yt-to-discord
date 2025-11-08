@@ -97,8 +97,6 @@ class YouTubeMonitor:
             click.echo(f"Error sending webhook: {e}", err=True)
 
     def _parse_video(self, entry: object, channel_name: str) -> VideoInfo:
-        print(entry)
-
         video_id = getattr(
             entry, "yt_videoid", getattr(entry, "link", "").split("v=")[-1]
         )
@@ -179,15 +177,16 @@ class YouTubeMonitor:
                     if video["id"] == last_video_id:
                         break
 
+                    self._save_state()
                     new_videos.append(video)
 
-                for video in new_videos[:2]:
+                for video in new_videos[:1]:
                     if "shorts" not in video["link"]:
                         await self._send_discord_webhook(session, webhook_url, video)
                     self.state[channel_id]["last_video_id"] = video["id"]
                     await asyncio.sleep(randint(5, 60))
 
-        self._save_state()
+
 
 
 @click.command()
