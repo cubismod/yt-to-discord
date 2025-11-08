@@ -13,7 +13,7 @@ permissions:
 
 env:
   CACHE_REPO: ghcr.io/cubismod/yt-to-discord/cache
-  REPO: ghcr.io/cubismod/yt-to-disocrd
+  REPO: ghcr.io/cubismod/yt-to-discord
 
 on:
   push:
